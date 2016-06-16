@@ -20,7 +20,7 @@ def get_response():
         while adjective in past_adjectives:
             adjective = get_adjective()
         past_adjectives.add(adjective)
-        greeting = "Рад тебя видеть снова, {} {}!".format(adjective, text)
+        greeting = "Glad to meet you, {} {}!".format(adjective, text)
         response = str(greeting)
     except:
         response = 'Errors... We don\'t need more errors, huh? Do something with it.'
