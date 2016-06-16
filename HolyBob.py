@@ -29,15 +29,15 @@ def get_response():
 
 
 def get_adjective():
-    adjs = {1:"красивый",
-            2:"божественный",
-            3:"премудрый",
-            4:"разрешающий мне пройти на собеседование",
-            5:"стильный",
-            6:"добрый",
-            7:"интеллектуальный",
-            8:"многогранный",
-            9:"классный"}
+    adjs = {1:"pretty",
+            2:"godlike",
+            3:"wise",
+            4:"allowing me to go to interview",
+            5:"stylish",
+            6:"kind",
+            7:"intellectual",
+            8:"amazing",
+            9:"cool"}
     randkey = np.random.randint(1, 10)
     print(randkey)
     return adjs.get(randkey)
