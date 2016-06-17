@@ -1,1 +1,1 @@
-app: python HolyBob.py --log-file -
+web: python HolyBob.py --log-file -
