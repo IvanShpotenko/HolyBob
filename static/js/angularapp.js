@@ -4,7 +4,7 @@ searchApp.controller('MainCtrl',
     function($scope, $http) {
 
         $scope.chatMessages = [
-            {user: 'Chatbot', text: 'Hi!'}
+            {user: 'Chatbot', text: 'Hi! Enter your name, your holiness!'}
         ];
 
         $scope.sendMessage = function(text) {
