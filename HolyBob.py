@@ -3,7 +3,7 @@ import numpy as np
 import os as os
 
 app = Flask(__name__)
-past_adjectives = set()
+past_names = dict()
 
 
 @app.route('/')
@@ -17,10 +17,7 @@ def get_response():
         data = request.get_json(force=True)
         text = data.get('text', None)
         print(text)
-        adjective = get_adjective()
-        while adjective in past_adjectives:
-            adjective = get_adjective()
-        past_adjectives.add(adjective)
+        adjective = past_names.get(text, default=get_adjective())
         greeting = "Glad to meet you again, {} {}!".format(adjective, text)
         response = str(greeting)
     except:
