@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
+import os as os
 
 app = Flask(__name__)
 past_adjectives = set()
