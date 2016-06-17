@@ -3,9 +3,11 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 import os as os
 from nltk.corpus import wordnet as wn
+import nltk
 
 app = Flask(__name__)
 past_names = dict()
+nltk.download()
 adjectives =[synset.name().split('.')[0] for synset in list(wn.all_synsets('a'))]
 adjs = {1: "holy",
         2: "godlike",
