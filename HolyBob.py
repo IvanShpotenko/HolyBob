@@ -20,8 +20,8 @@ def get_response():
         adjective = past_names.get(text, default=get_adjective())
         greeting = "Glad to meet you again, {} {}!".format(adjective, text)
         response = str(greeting)
-    except:
-        response = 'Errors... We don\'t need more errors, huh? Do something with it.'
+    except Exception as err:
+        response = 'Errors... We don\'t need more errors, huh? Do something with it.' + str(err)
 
     return jsonify({'response': response})
 
