@@ -18,11 +18,11 @@ def get_response():
     data = request.get_json(force=True)
     text = data.get('text', None)
     past_names.setdefault(text, get_adjective())
-    greet_line = "I am glad to see you again, "
+    greet_line = "I am glad to see you again,"
     # print(open(r'requirements.txt', 'r').read())
     # with open(os.path.abspath("HolyBob/russian.txt"), 'r') as f:
     #     first_line = f.readline()
-    greeting = "{}, {} {}!".format(greet_line, past_names[text], text).encode("utf-8")
+    greeting = "{} {} {}!".format(greet_line, past_names[text], text).encode("utf-8")
     response = greeting.decode("utf-8")
 
     return jsonify({'response': response})
