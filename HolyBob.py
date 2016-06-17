@@ -7,8 +7,11 @@ import nltk
 
 app = Flask(__name__)
 past_names = dict()
-nltk.download()
-adjectives =[synset.name().split('.')[0] for synset in list(wn.all_synsets('a'))]
+# adjectives =[synset.name().split('.')[0] for synset in list(wn.all_synsets('a'))]
+with app.open_resource('text.txt') as f:
+    adjectives =[word.strip().decode() for word in f]
+
+print(adjectives)
 adjs = {1: "holy",
         2: "godlike",
         3: "wise",
