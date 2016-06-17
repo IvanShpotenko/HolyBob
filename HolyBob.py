@@ -13,15 +13,13 @@ def hello_world():
 
 @app.route('/response', methods=['POST'])
 def get_response():
-    try:
-        data = request.get_json(force=True)
-        text = data.get('text', None)
-        print(text)
-        adjective = past_names.get(text, default=get_adjective())
-        greeting = "Glad to meet you again, {} {}!".format(adjective, text)
-        response = str(greeting)
-    except Exception as err:
-        response = 'Errors... We don\'t need more errors, huh? Do something with it.' + str(err)
+
+    data = request.get_json(force=True)
+    text = data.get('text', None)
+    adjective = past_names.get(text, get_adjective())
+    past_names.update({text: adjective})
+    greeting = "Glad to meet you again, {} {}!".format(adjective, text)
+    response = str(greeting)
 
     return jsonify({'response': response})
 
