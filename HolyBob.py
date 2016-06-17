@@ -21,7 +21,7 @@ def get_response():
         while adjective in past_adjectives:
             adjective = get_adjective()
         past_adjectives.add(adjective)
-        greeting = "Glad to meet you, {} {}!".format(adjective, text)
+        greeting = "Glad to meet you again, {} {}!".format(adjective, text)
         response = str(greeting)
     except:
         response = 'Errors... We don\'t need more errors, huh? Do something with it.'
@@ -30,7 +30,7 @@ def get_response():
 
 
 def get_adjective():
-    adjs = {1:"pretty",
+    adjs = {1:"holy",
             2:"godlike",
             3:"wise",
             4:"allowing me to go to interview",
