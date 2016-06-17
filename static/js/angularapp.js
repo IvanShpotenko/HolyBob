@@ -8,7 +8,6 @@ searchApp.controller('MainCtrl',
         ];
 
         $scope.sendMessage = function(text) {
-        //TODO: debug so that contents of message box get refreshed
             if (!text) return;
             $scope.chatMessages.push({user: 'You', text: text});
             $http.post('/response', {text: text}).then(function(res) {
