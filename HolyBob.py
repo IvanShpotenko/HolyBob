@@ -1,3 +1,4 @@
+# -​*- coding: utf-8 -*​-
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 import os as os
@@ -17,7 +18,7 @@ def get_response():
     data = request.get_json(force=True)
     text = data.get('text', None)
     past_names.setdefault(text, get_adjective())
-    greeting = "Glad to meet you again, {} {}!".format(past_names[text], text)
+    greeting = "Рад тебя видеть снова, {} {}!".format(past_names[text], text)
     response = str(greeting)
 
     return jsonify({'response': response})
