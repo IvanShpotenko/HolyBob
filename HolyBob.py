@@ -16,9 +16,8 @@ def get_response():
 
     data = request.get_json(force=True)
     text = data.get('text', None)
-    adjective = past_names.get(text, get_adjective())
-    past_names.update({text: adjective})
-    greeting = "Glad to meet you again, {} {}!".format(adjective, text)
+    past_names.setdefault(text, get_adjective())
+    greeting = "Glad to meet you again, {} {}!".format(past_names[text], text)
     response = str(greeting)
 
     return jsonify({'response': response})
