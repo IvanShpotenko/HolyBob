@@ -1,14 +1,11 @@
-from __future__ import print_function
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 import os as os
 
 app = Flask(__name__)
 past_names = dict()
-# adjectives =[synset.name().split('.')[0] for synset in list(wn.all_synsets('a'))]
 with app.open_resource('text.txt') as f:
     adjectives = [word.strip().decode() for word in f]
-
 adjs = {1: "holy",
         2: "godlike",
         3: "wise",
@@ -32,13 +29,10 @@ def get_response():
     text = data.get('text', None)
     past_names.setdefault(text, get_adjective())
     greet_line = "I am glad to see you again,"
-    # print(open(r'requirements.txt', 'r').read())
-    # with open(os.path.abspath("HolyBob/russian.txt"), 'r') as f:
-    #     first_line = f.readline()
-    # with open("templates/russian.txt") as f:
-    with app.open_resource('russian.txt') as f:
-        for line in f:
-            print(line)
+    # greet_rus = ""
+    # with app.open_resource('russian.txt') as f:
+    #     for line in f:
+    #         greet_rus = line
     greeting = "{} {} {}!".format(greet_line, past_names[text], text).encode("utf-8")
     response = greeting.decode("utf-8")
 
@@ -51,9 +45,7 @@ def get_adjective():
     for key, value in adjs.items():
         if key == randkey:
             forRet = adjs[key]
-            adjs[key]= get_NLTK_adjective()
-
-    print(adjs.items())
+            adjs[key] = get_NLTK_adjective()
     return forRet
 
 def get_NLTK_adjective():
