@@ -2,16 +2,13 @@ from __future__ import print_function
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 import os as os
-from nltk.corpus import wordnet as wn
-import nltk
 
 app = Flask(__name__)
 past_names = dict()
 # adjectives =[synset.name().split('.')[0] for synset in list(wn.all_synsets('a'))]
 with app.open_resource('text.txt') as f:
-    adjectives =[word.strip().decode() for word in f]
+    adjectives = [word.strip().decode() for word in f]
 
-print(adjectives)
 adjs = {1: "holy",
         2: "godlike",
         3: "wise",
