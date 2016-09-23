@@ -51,7 +51,11 @@ def get_NLTK_adjective():
     return adjectives.pop(randkey)
 
 if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
-    port = int(os.environ.get('PORT', 5000))
+    if 'OPENSHIFT_APP_NAME' in os.environ:              #are we on OPENSHIFT?
+        ip = os.environ['OPENSHIFT_PYTHON_IP']
+        port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
+        app.run(host=ip, port=port)
+    else:
+        port = int(os.environ.get('PORT', 5000))
     #app.run(host='0.0.0.0', port=port)
-    app.run()
+        app.run()
